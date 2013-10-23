@@ -345,7 +345,7 @@ jQuery(document).ready(function () {
 					// Rundgang wurde bisher noch nicht gespeichert		
 					
 					data = {
-							'id': 227,
+							'id': 77,
 							'no_cache': 1,
 							'type': 99,
 							'tx_idsmungosrundgang[action]': "create",
