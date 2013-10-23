@@ -19,7 +19,7 @@ jQuery(document).ready(function () {
             
         //hmac = 'a:3:{s:19:"newStoerungsmeldung";a:16:{s:6:"feUser";i:1;s:4:"type";i:1;s:8:"dateTime";i:1;s:7:"geoData";i:1;s:6:"images";i:1;s:14:"arrivalStation";i:1;s:10:"policeInfo";i:1;s:12:"hospitalInfo";i:1;s:15:"liftArrivelTime";i:1;s:13:"liftEndedTime";i:1;s:4:"name";i:1;s:7:"address";i:1;s:7:"contact";i:1;s:9:"lostFound";i:1;s:11:"trainNumber";i:1;s:13:"numberPersons";i:1;}s:6:"action";i:1;s:10:"controller";i:1;}e65236d2331e30b99f5cc56609aa14f2d648fbd4';
         //hmac = 'a:3:{s:19:"newStoerungsmeldung";a:21:{s:6:"feUser";i:1;s:4:"type";i:1;s:8:"dateTime";i:1;s:7:"geoData";i:1;s:6:"images";i:1;s:14:"arrivalStation";i:1;s:11:"maPhoneInfo";i:1;s:10:"policeInfo";i:1;s:12:"hospitalInfo";i:1;s:15:"liftArrivelTime";i:1;s:13:"liftEndedTime";i:1;s:15:"concernSecurity";i:1;s:4:"name";i:1;s:7:"address";i:1;s:7:"contact";i:1;s:9:"lostFound";i:1;s:11:"trainNumber";i:1;s:4:"lift";i:1;s:10:"wheelchair";i:1;s:6:"escort";i:1;s:13:"numberPersons";i:1;}s:6:"action";i:1;s:10:"controller";i:1;}e65236d2331e30b99f5cc56609aa14f2d648fbd4';
-        hmac = 'a:3:{s:19:"newStoerungsmeldung";a:21:{s:6:"feUser";i:1;s:4:"type";i:1;s:8:"dateTime";i:1;s:7:"geoData";i:1;s:6:"images";i:1;s:14:"arrivalStation";i:1;s:11:"maPhoneInfo";i:1;s:10:"policeInfo";i:1;s:12:"hospitalInfo";i:1;s:15:"liftArrivelTime";i:1;s:13:"liftEndedTime";i:1;s:15:"concernSecurity";i:1;s:4:"name";i:1;s:7:"address";i:1;s:7:"contact";i:1;s:9:"lostFound";i:1;s:11:"trainNumber";i:1;s:4:"lift";i:1;s:10:"wheelchair";i:1;s:6:"escort";i:1;s:13:"numberPersons";i:1;}s:6:"action";i:1;s:10:"controller";i:1;}d8f7c8123ac14bf68a9783b9f63cbcf73467ba06';
+       // hmac = 'a:3:{s:19:"newStoerungsmeldung";a:21:{s:6:"feUser";i:1;s:4:"type";i:1;s:8:"dateTime";i:1;s:7:"geoData";i:1;s:6:"images";i:1;s:14:"arrivalStation";i:1;s:11:"maPhoneInfo";i:1;s:10:"policeInfo";i:1;s:12:"hospitalInfo";i:1;s:15:"liftArrivelTime";i:1;s:13:"liftEndedTime";i:1;s:15:"concernSecurity";i:1;s:4:"name";i:1;s:7:"address";i:1;s:7:"contact";i:1;s:9:"lostFound";i:1;s:11:"trainNumber";i:1;s:4:"lift";i:1;s:10:"wheelchair";i:1;s:6:"escort";i:1;s:13:"numberPersons";i:1;}s:6:"action";i:1;s:10:"controller";i:1;}d8f7c8123ac14bf68a9783b9f63cbcf73467ba06';
         //mString = '{ "datetime" : "' + mDateTime + '", "position" : "' + mPos + '", "meldung" : "' + mMeldung + '" }';
         
         jmString = JSON.parse(mString);   
@@ -53,32 +53,27 @@ jQuery(document).ready(function () {
             'no_cache': 1,
             'type': 97,
             'tx_mungosstoerung_mungosstoerung[action]': "create",
-            'tx_mungosstoerung_mungosstoerung[controller]': "Stoerungsmeldung",
-            'tx_mungosstoerung_mungosstoerung[__referrer][extensionName]': "MungosStoerung",
-            'tx_mungosstoerung_mungosstoerung[__referrer][controllerName]': "Stoerungsmeldung",
-            'tx_mungosstoerung_mungosstoerung[__referrer][actionName]': "new",
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][feUser]': feUser,
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][dateTime]': mDateTime,
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][geoData]': mPosition,
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][type]': mMeldung,   
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][images]': mPics, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][lostFound]': mLostFound, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][trainNumber]': mTrainNumber, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][numberPersons]': mNumberPersons, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][lift]': mLift, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][wheelchair]': mWheelchair, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][escort]': mEscort, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][arrivalStation]': mArrivalStation, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][maPhoneInfo]': mMaPhone, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][liftArrivelTime]': mLiftArrivelTime, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][liftEndedTime]': mLiftEndedTime, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][policeInfo]': mPoliceInfo, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][hospitalInfo]': mHospitalInfo, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][concernSecurity]': mConcernSecurity, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][name]': mName, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][address]': mAddress, 
-            'tx_mungosstoerung_mungosstoerung[newStoerungsmeldung][contact]': mContact, 
-            'tx_mungosstoerung_mungosstoerung[__hmac]': hmac
+            'tx_mungosstoerung_mungosstoerung[feUser]': feUser,
+            'tx_mungosstoerung_mungosstoerung[dateTime]': mDateTime,
+            'tx_mungosstoerung_mungosstoerung[geoData]': mPosition,
+            'tx_mungosstoerung_mungosstoerung[type]': mMeldung,   
+            'tx_mungosstoerung_mungosstoerung[images]': mPics, 
+            'tx_mungosstoerung_mungosstoerung[lostFound]': mLostFound, 
+            'tx_mungosstoerung_mungosstoerung[trainNumber]': mTrainNumber, 
+            'tx_mungosstoerung_mungosstoerung[numberPersons]': mNumberPersons, 
+            'tx_mungosstoerung_mungosstoerung[lift]': mLift, 
+            'tx_mungosstoerung_mungosstoerung[wheelchair]': mWheelchair, 
+            'tx_mungosstoerung_mungosstoerung[escort]': mEscort, 
+            'tx_mungosstoerung_mungosstoerung[arrivalStation]': mArrivalStation, 
+            'tx_mungosstoerung_mungosstoerung[maPhoneInfo]': mMaPhone, 
+            'tx_mungosstoerung_mungosstoerung[liftArrivelTime]': mLiftArrivelTime, 
+            'tx_mungosstoerung_mungosstoerung[liftEndedTime]': mLiftEndedTime, 
+            'tx_mungosstoerung_mungosstoerung[policeInfo]': mPoliceInfo, 
+            'tx_mungosstoerung_mungosstoerung[hospitalInfo]': mHospitalInfo, 
+            'tx_mungosstoerung_mungosstoerung[concernSecurity]': mConcernSecurity, 
+            'tx_mungosstoerung_mungosstoerung[name]': mName, 
+            'tx_mungosstoerung_mungosstoerung[address]': mAddress, 
+            'tx_mungosstoerung_mungosstoerung[contact]': mContact
         };
     
         $.jsonp({
