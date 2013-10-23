@@ -18,7 +18,8 @@ jQuery(document).ready(function () {
         var m_key = 'm_' + localStorage.getItem("fe_user");
             
         //hmac = 'a:3:{s:19:"newStoerungsmeldung";a:16:{s:6:"feUser";i:1;s:4:"type";i:1;s:8:"dateTime";i:1;s:7:"geoData";i:1;s:6:"images";i:1;s:14:"arrivalStation";i:1;s:10:"policeInfo";i:1;s:12:"hospitalInfo";i:1;s:15:"liftArrivelTime";i:1;s:13:"liftEndedTime";i:1;s:4:"name";i:1;s:7:"address";i:1;s:7:"contact";i:1;s:9:"lostFound";i:1;s:11:"trainNumber";i:1;s:13:"numberPersons";i:1;}s:6:"action";i:1;s:10:"controller";i:1;}e65236d2331e30b99f5cc56609aa14f2d648fbd4';
-        hmac = 'a:3:{s:19:"newStoerungsmeldung";a:21:{s:6:"feUser";i:1;s:4:"type";i:1;s:8:"dateTime";i:1;s:7:"geoData";i:1;s:6:"images";i:1;s:14:"arrivalStation";i:1;s:11:"maPhoneInfo";i:1;s:10:"policeInfo";i:1;s:12:"hospitalInfo";i:1;s:15:"liftArrivelTime";i:1;s:13:"liftEndedTime";i:1;s:15:"concernSecurity";i:1;s:4:"name";i:1;s:7:"address";i:1;s:7:"contact";i:1;s:9:"lostFound";i:1;s:11:"trainNumber";i:1;s:4:"lift";i:1;s:10:"wheelchair";i:1;s:6:"escort";i:1;s:13:"numberPersons";i:1;}s:6:"action";i:1;s:10:"controller";i:1;}e65236d2331e30b99f5cc56609aa14f2d648fbd4';
+        //hmac = 'a:3:{s:19:"newStoerungsmeldung";a:21:{s:6:"feUser";i:1;s:4:"type";i:1;s:8:"dateTime";i:1;s:7:"geoData";i:1;s:6:"images";i:1;s:14:"arrivalStation";i:1;s:11:"maPhoneInfo";i:1;s:10:"policeInfo";i:1;s:12:"hospitalInfo";i:1;s:15:"liftArrivelTime";i:1;s:13:"liftEndedTime";i:1;s:15:"concernSecurity";i:1;s:4:"name";i:1;s:7:"address";i:1;s:7:"contact";i:1;s:9:"lostFound";i:1;s:11:"trainNumber";i:1;s:4:"lift";i:1;s:10:"wheelchair";i:1;s:6:"escort";i:1;s:13:"numberPersons";i:1;}s:6:"action";i:1;s:10:"controller";i:1;}e65236d2331e30b99f5cc56609aa14f2d648fbd4';
+        hmac = 'a:3:{s:19:"newStoerungsmeldung";a:21:{s:6:"feUser";i:1;s:4:"type";i:1;s:8:"dateTime";i:1;s:7:"geoData";i:1;s:6:"images";i:1;s:14:"arrivalStation";i:1;s:11:"maPhoneInfo";i:1;s:10:"policeInfo";i:1;s:12:"hospitalInfo";i:1;s:15:"liftArrivelTime";i:1;s:13:"liftEndedTime";i:1;s:15:"concernSecurity";i:1;s:4:"name";i:1;s:7:"address";i:1;s:7:"contact";i:1;s:9:"lostFound";i:1;s:11:"trainNumber";i:1;s:4:"lift";i:1;s:10:"wheelchair";i:1;s:6:"escort";i:1;s:13:"numberPersons";i:1;}s:6:"action";i:1;s:10:"controller";i:1;}d8f7c8123ac14bf68a9783b9f63cbcf73467ba06';
         //mString = '{ "datetime" : "' + mDateTime + '", "position" : "' + mPos + '", "meldung" : "' + mMeldung + '" }';
         
         jmString = JSON.parse(mString);   
@@ -97,7 +98,7 @@ jQuery(document).ready(function () {
                 jQuery("#beendetMinute").val("");
             },
             error: function(xOptions, textStatus, error){
-                //alert("Meldung fehlgeschlagen: " + JSON.stringify(xOptions) + " " + textStatus + " " + error);
+                alert("Meldung fehlgeschlagen: " + textStatus + " " + error);
             }
         });               
         
