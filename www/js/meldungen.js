@@ -19,7 +19,7 @@ jQuery(document).ready(function () {
             
         //      hmac = 'a:3:{s:19:"newStoerungsmeldung";a:6:{s:6:"feUser";i:1;s:4:"type";i:1;s:8:"addition";i:1;s:8:"dateTime";i:1;s:7:"geoData";i:1;s:6:"images";i:1;}s:6:"action";i:1;s:10:"controller";i:1;}3ddd27c6a2cbeafbcbcffd18b4458ff35854b91b';
         
-        hmac = 'a:3:{s:19:"newStoerungsmeldung";a:21:{s:6:"feUser";i:1;s:4:"type";i:1;s:8:"dateTime";i:1;s:7:"geoData";i:1;s:6:"images";i:1;s:14:"arrivalStation";i:1;s:11:"maPhoneInfo";i:1;s:10:"policeInfo";i:1;s:12:"hospitalInfo";i:1;s:15:"liftArrivelTime";i:1;s:13:"liftEndedTime";i:1;s:15:"concernSecurity";i:1;s:4:"name";i:1;s:7:"address";i:1;s:7:"contact";i:1;s:9:"lostFound";i:1;s:11:"trainNumber";i:1;s:4:"lift";i:1;s:10:"wheelchair";i:1;s:6:"escort";i:1;s:13:"numberPersons";i:1;}s:6:"action";i:1;s:10:"controller";i:1;}d8d5d7f9b88f78e2bfe7c7ac7e27b29c1954f318';
+        hmac = 'a:3:{s:19:"newStoerungsmeldung";a:21:{s:6:"feUser";i:1;s:4:"type";i:1;s:8:"dateTime";i:1;s:7:"geoData";i:1;s:6:"images";i:1;s:14:"arrivalStation";i:1;s:11:"maPhoneInfo";i:1;s:10:"policeInfo";i:1;s:12:"hospitalInfo";i:1;s:15:"liftArrivelTime";i:1;s:13:"liftEndedTime";i:1;s:15:"concernSecurity";i:1;s:4:"name";i:1;s:7:"address";i:1;s:7:"contact";i:1;s:9:"lostFound";i:1;s:11:"trainNumber";i:1;s:4:"lift";i:1;s:10:"wheelchair";i:1;s:6:"escort";i:1;s:13:"numberPersons";i:1;}s:6:"action";i:1;s:10:"controller";i:1;}8dbff64e078c8bd8d6d99fbdb0ccc75ad01252b4';
         //mString = '{ "datetime" : "' + mDateTime + '", "position" : "' + mPos + '", "meldung" : "' + mMeldung + '" }';
         
         jmString = JSON.parse(mString);   
