@@ -100,6 +100,11 @@
     <gap:plugin name="org.apache.cordova.core.geolocation" />
     <gap:plugin name="org.apache.cordova.core.file" />
     <gap:plugin name="org.apache.cordova.core.media-capture" />
-
+    
+    <gap:plugin name="org.apache.cordova.core.camera" />    
+    <gap:plugin name="org.apache.cordova.core.file-transfer" />
+    
+	<!-- 3rd Party Plugins -->
+		<!--<gap:plugin name="com.chariotsolutions.nfc.plugin" />-->
 		
 </widget>
