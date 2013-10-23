@@ -6,7 +6,7 @@
         id        = "com.idsolutions.ids-matool"
         version   = "1.0.0">
 
-    <name>Mungos Active</name>
+    <name>Mungos Active Dev</name>
 
     <description>
         Wachdienst, Einstiegshilfe, Meldungen
@@ -103,6 +103,8 @@
     
     <gap:plugin name="org.apache.cordova.core.camera" />    
     <gap:plugin name="org.apache.cordova.core.file-transfer" />
+    
+    <gap:plugin name="org.apache.cordova.core.network-information" />
     
 	<!-- 3rd Party Plugins -->
 		<!--<gap:plugin name="com.chariotsolutions.nfc.plugin" />-->
