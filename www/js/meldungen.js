@@ -46,10 +46,10 @@ jQuery(document).ready(function () {
         mContact = jmString[0].contact;
         
     
-        url = "http://ma.ids-services.at/index.php";
+        url = "http://active.mungos-services.at/index.php";
 
         data = {
-            'id': 229,
+            'id': 79,
             'no_cache': 1,
             'type': 97,
             'tx_mungosstoerung_mungosstoerung[action]': "create",
