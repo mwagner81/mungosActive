@@ -21,22 +21,44 @@
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.jsonp.js"></script>                
+        <title>Mungos Login</title>
     </head>
-    <body>
-        <div class="app">
-            <h1>PhoneGap</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+    <body id="bLogin">
+        <!-- Start of Login page -->
+        <div id="login" data-title="Login">    
+            <div data-role="content">
+                <img src="img/mungosButton.png" id="mungosButton" />
+                <div id="loginError"></div>
+                <form action="index.html" id="loginForm">
+                    <input type="text" placeholder="Name:" id="loginName" name="username" data-role="none" />
+                    <input type="password" placeholder="Passwort:" id="loginPassword" name="password" data-role="none" />
+                    <input type="submit" value="" id="loginSubmit" data-role="none" />
+                </form>
             </div>
-        </div>
+        </div>       
+        <!-- /page -->
         <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/diverses.js"></script>  
         <script type="text/javascript">
-            app.initialize();
-        </script>
+        	function checkLogin(){
+                // Set key for userData
+                u_key = 'u_' + localStorage.getItem('fe_user');
+                
+                // Load userData
+                var uData = {};
+                
+                if(uData = JSON.parse(localStorage.getItem(u_key))){
+                    if(uData.logged_in == true){
+                        window.location.replace('content.html');
+                    }
+                }
+        	}
+        	checkLogin();
+        </script>   
     </body>
 </html>
