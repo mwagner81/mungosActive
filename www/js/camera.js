@@ -9,6 +9,7 @@ document.addEventListener("deviceready",onDeviceReady,false);
 // device APIs are available
 //
 function onDeviceReady() {
+    alert("Device Ready");
     pictureSource=navigator.camera.PictureSourceType;
     destinationType=navigator.camera.DestinationType;
 }
@@ -77,7 +78,7 @@ function captureError(error) {
 function captureImage() {
     // Launch device camera application,
     // allowing user to capture up to 2 images
-    navigator.device.capture.captureImage(captureSuccess, captureError,{limit: 2});
+    navigator.device.capture.captureImage(captureSuccess, captureError);
 }
 
 // Upload files to server
