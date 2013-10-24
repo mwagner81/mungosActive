@@ -8,10 +8,7 @@ var pictureFiles = new Array();
 
 // device APIs are available
 //
-window.onload = function onDeviceReady() {
-    pictureSource=navigator.camera.PictureSourceType;
-    destinationType=navigator.camera.DestinationType;
-}
+
 
 // get Photo from Album
 //
@@ -75,6 +72,11 @@ function captureError(error) {
 // A button will call this function
 //
 function captureImage() {
+    
+    pictureSource=navigator.camera.PictureSourceType;
+    destinationType=navigator.camera.DestinationType;    
+    
+    
     // Launch device camera application,
     // allowing user to capture up to 2 images
     navigator.device.capture.captureImage(captureSuccess, captureError,{limit: 1});
