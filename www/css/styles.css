@@ -1063,6 +1063,9 @@ span.navVertLineBright {
 
 .meForm label {
     font-size: 12px;
+}
+
+.meForm .uEcheckWrap label {
     float: left;
     margin-top: -8px;
 }
