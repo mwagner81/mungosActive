@@ -634,7 +634,6 @@ p#pics img:nth-child(5n) {
     width: 350px;
     height: auto;
     margin-bottom: 5px;
-    margin-left: -5px;
 }
 
 .cameraBreak {
@@ -860,7 +859,6 @@ input.meCheck {
     float: left;
     margin: 0;
     margin-right: 5px;
-    margin-left: 5px;
 }
 
 
@@ -1059,18 +1057,4 @@ span.navVertLineBright {
 .selectLabel {
     float: left;
     width: 100%;
-}
-
-.meForm label {
-    font-size: 12px;
-}
-
-.meForm .uEcheckWrap label {
-    float: left;
-    margin-top: -8px;
-}
-
-.uEcheckWrap div {
-    clear: both;
-    padding-bottom: 15px;
 }
