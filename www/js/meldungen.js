@@ -77,8 +77,8 @@ jQuery(document).ready(function () {
 					callbackParameter: 'jsonp_callback',
 					success: function(json) { 
 							//alert("Meldung erfolgreich");
-							//consoleLog('debug', "Störungsmeldung gespeichert (uid:"+json.uid+")");
-							//consoleLog('debug', JSON.stringify(data));
+							consoleLog('debug', "Störungsmeldung gespeichert (uid:"+json.uid+")");
+							consoleLog('debug', JSON.stringify(data));
 							localStorage.removeItem(m_key);
 							localStorage.removeItem("pics");   
 							jQuery("input[type=text], textarea").val("");
@@ -90,7 +90,7 @@ jQuery(document).ready(function () {
 							jQuery("#beendetMinute").val("");
 					},
 					error: function(xOptions, textStatus, error){
-							//consoleLog('debug', "Störungsmeldung error");
+							consoleLog('debug', "Störungsmeldung error");
 							alert("Meldung fehlgeschlagen: " + textStatus + " " + error);
 					}
 			});               
@@ -157,9 +157,9 @@ jQuery(document).ready(function () {
 			
 			if(jQuery("#gewaltKrankenhaus").val().length > 0){
 					mHospitalInfo = jQuery("#gewaltKrankenhaus").val();
-			}  
+			/*}  
 			else if(jQuery("#einbruchKrankenhaus").val().length > 0){
-					mHospitalInfo = jQuery("#einbruchKrankenhaus").val();
+					mHospitalInfo = jQuery("#einbruchKrankenhaus").val();*/
 			}else {
 					mHospitalInfo = "";
 			}
