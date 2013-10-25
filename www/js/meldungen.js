@@ -157,9 +157,9 @@ jQuery(document).ready(function () {
 			
 			if(jQuery("#gewaltKrankenhaus").val().length > 0){
 					mHospitalInfo = jQuery("#gewaltKrankenhaus").val();
-			}  
+			/*}  
 			else if(jQuery("#einbruchKrankenhaus").val().length > 0){
-					mHospitalInfo = jQuery("#einbruchKrankenhaus").val();
+					mHospitalInfo = jQuery("#einbruchKrankenhaus").val();*/
 			}else {
 					mHospitalInfo = "";
 			}
