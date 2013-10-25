@@ -136,6 +136,7 @@ input[type=checkbox]
     -o-transform: scale(2); /* Opera */
     width: auto;
     margin-right: 5px;
+    margin-left: 5px;
 }
 
 input[type=radio]
@@ -1063,8 +1064,7 @@ span.navVertLineBright {
 .meForm label {
     font-size: 12px;
     float: left;
-    margin-top: -4px;
-    margin-left: 5px;
+    margin-top: -6px;
 }
 
 .uEcheckWrap div {
