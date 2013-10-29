@@ -76,7 +76,7 @@ jQuery(document).ready(function () {
         jQuery("#loginError").html('');
         
         error = false;
-        url = "http://active.mungos-services.at/index.php";
+        url = "http://active-dev.mungos-services.at/index.php";
         
         /* get some values from elements on the page: */
         form = jQuery(this);
@@ -170,7 +170,7 @@ jQuery(document).ready(function () {
         var error, url, data, username, password, request, uData;
         
         error = false;
-        url = "http://active.mungos-services.at/index.php";
+        url = "http://active-dev.mungos-services.at/index.php";
         
         // Load userData
         uData = {};

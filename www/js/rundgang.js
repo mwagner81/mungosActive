@@ -2,7 +2,7 @@ jQuery(document).ready(function () {
 
 	var rKey, rWatchId, saveInterval, rInterval, saveTimeout, x, oRundgang;
 	
-	var url = "http://active.mungos-services.at/index.php"; 
+	var url = "http://active-dev.mungos-services.at/index.php"; 
 	
 	if (localStorage.getItem("fe_user")) {
 		// Set key for Rundgang

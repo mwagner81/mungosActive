@@ -4,6 +4,8 @@ jQuery(document).ready(function () {
     var mMeldung, mAddition, m_key;
     var mLostFound, mTrainNumber, mNumberPersons, mLift, mWheelchair, mEscort, mArrivalStation, mMaPhone, mLiftArrivelTime, mLiftEndedTime, mPoliceInfo, mHospitalInfo, mConcernSecurity;
     var mName, mAddress, mContact, mComment;
+		var countGeoForMeldung = 0;
+		var searchGeoDataForMeldung = false;
 		
     if (localStorage.getItem("fe_user")) {
         // Set key for Meldung
@@ -16,15 +18,17 @@ jQuery(document).ready(function () {
 			
 			var data, mDateTime, mPosition, mMeldung, url, request, jqxhr, uid, jmString, mPics, pData, mAddition, mComment;
 			var m_key = 'm_' + localStorage.getItem("fe_user");
-					
+			
+			mString = mString.replace(/\n/g,"\\n")
 			jmString = JSON.parse(mString);   
 			
+                        
 			mDateTime = jmString[0]["datetime"];
 			mPosition = jmString[0]["position"];
 			mMeldung = jmString[0].meldung;
 			mPics = jmString[0].pics;        
 			mLostFound = jmString[0].lostfound;
-                        mComment = jmString[0].comment;
+      mComment = jmString[0].comment;
 			mTrainNumber = jmString[0].trainnumber;
 			mNumberPersons = jmString[0].numberpersons;
 			mLift = jmString[0].lift;
@@ -42,7 +46,7 @@ jQuery(document).ready(function () {
 			mContact = jmString[0].contact;
 			
     
-			url = "http://active.mungos-services.at/index.php";
+			url = "http://active-dev.mungos-services.at/index.php";
 
 			data = {
 					'id': 79,
@@ -79,20 +83,20 @@ jQuery(document).ready(function () {
 					callbackParameter: 'jsonp_callback',
 					success: function(json) { 
 							//alert("Meldung erfolgreich");
-							consoleLog('debug', "Störungsmeldung gespeichert (uid:"+json.uid+")");
-							consoleLog('debug', JSON.stringify(data));
+							//consoleLog('debug', "Störungsmeldung gespeichert (uid:"+json.uid+")");
+							//consoleLog('debug', JSON.stringify(data));
 							localStorage.removeItem(m_key);
 							localStorage.removeItem("pics");   
 							jQuery("input[type=text], textarea").val("");
 							jQuery("input[type=checkbox]").attr('checked', false);
 							jQuery("input[type=radio]").attr('checked', false);
-							jQuery("#eingetroffeneStunde").val("");
-							jQuery("#eingetroffeneMinute").val("");
-							jQuery("#beendetStunde").val("");
-							jQuery("#beendetMinute").val("");
+							jQuery("#eingetroffeneStunde").prop('selectedIndex',0);
+							jQuery("#eingetroffeneMinute").prop('selectedIndex',0);
+							jQuery("#beendetStunde").prop('selectedIndex',0);
+							jQuery("#beendetMinute").prop('selectedIndex',0);
 					},
 					error: function(xOptions, textStatus, error){
-							consoleLog('debug', "Störungsmeldung error");
+							//consoleLog('debug', "Störungsmeldung error");
 							alert("Meldung fehlgeschlagen: " + textStatus + " " + error);
 					}
 			});               
@@ -124,6 +128,10 @@ jQuery(document).ready(function () {
 			}else if(jQuery(this).hasClass("meldung10")) {
 					mMeldung = "Verweise / Belehrung";
 			}
+			
+			d = new Date();
+			m = d.getMonth() + 1;
+			//mDateTime = d.getHours() + ':' + d.getMinutes() + ':' +  d.getSeconds() + ' ' + d.getDate() + '-' + m + '-' + d.getFullYear();  
         
 			mLostFound = jQuery(".meRadio:checked").length > 0 ? jQuery(".meRadio:checked").val() : "";
 			mTrainNumber = jQuery("#uEzn").val().length > 0 ? jQuery("#uEzn").val() : "";
@@ -134,9 +142,9 @@ jQuery(document).ready(function () {
 			mEscort = jQuery("#Begleitung").prop('checked') ? 1 : 0;
 			mMaPhone = jQuery("#maTel").prop('checked') ? 1 : 0;
 			mLiftArrivelTime = jQuery("#eingetroffeneStunde").val().length > 0 && jQuery("#eingetroffeneMinute").val().length ? 
-					jQuery("#eingetroffeneStunde").val()+":"+jQuery("#eingetroffeneMinute").val() : "";
+					jQuery("#eingetroffeneStunde").val()+":"+jQuery("#eingetroffeneMinute").val()+':'+d.getSeconds()+' '+d.getDate()+'-'+m+'-'+d.getFullYear() : "";
 			mLiftEndedTime = jQuery("#beendetStunde").val().length > 0 && jQuery("#beendetMinute").val().length ? 
-					jQuery("#beendetStunde").val()+":"+jQuery("#beendetMinute").val() : "";       
+					jQuery("#beendetStunde").val()+":"+jQuery("#beendetMinute").val()+':'+d.getSeconds()+' '+d.getDate()+'-'+m+'-'+d.getFullYear() : "";       
 			mConcernSecurity = jQuery("#Konzernsicherheit").prop('checked') ? 1 : 0;
 			mName = jQuery("#beschwerdeName").val().length > 0 ? jQuery("#beschwerdeName").val() : ""; 
 			mAddress = jQuery("#beschwerdeAdresse").val().length > 0 ? jQuery("#beschwerdeAdresse").val() : ""; 
@@ -178,29 +186,89 @@ jQuery(document).ready(function () {
 			jQuery(".confContent").find("h1").text("Möchten Sie die Meldung \""+mMeldung+"\" abschicken?");     
 			
     });
-         
-    jQuery(".mConfirm").on('click',function () {
-        
-			var mDateTime, mString, position, mPos, mPics;        
+		
+		// set Meldungsstring in Localstorage    
+		function saveLocalMeldung(position){
 			
-			navigator.geolocation.getCurrentPosition(saveLocalMeldung, onGeoError);   
-			
-			// set Meldungsstring in Localstorage    
-			function saveLocalMeldung(position){
+			var mDateTime, mString, position, mPos, mPics;  
 
+			d = new Date();
+			m = d.getMonth() + 1;
+
+			mDateTime = d.getHours() + ':' + d.getMinutes() + ':' +  d.getSeconds() + ' ' + d.getDate() + '-' + m + '-' + d.getFullYear();                
+			mPos = position.coords.latitude + "," + position.coords.longitude;
+			mPics = localStorage.getItem("pics");
+			
+			countGeoForMeldung = 0;
+			searchGeoDataForMeldung = false;
+
+			mString = '[{   "datetime" : "' + mDateTime 
+					+ '", "position" : "' + mPos 
+					+ '", "meldung" : "' + mMeldung 
+					+ '", "pics" : "' + mPics 
+					+ '", "lostfound" : "' + mLostFound 
+					+ '", "comment" : "' + mComment 
+					+ '", "trainnumber" : "' + mTrainNumber 
+					+ '", "numberpersons" : "' + mNumberPersons 
+					+ '", "lift" : "' + mLift 
+					+ '", "wheelchair" : "' + mWheelchair 
+					+ '", "escort" : "' + mEscort 
+					+ '", "arrivalstation" : "' + mArrivalStation 
+					+ '", "maphone" : "' + mMaPhone 
+					+ '", "liftarrivaltime" : "' + mLiftArrivelTime 
+					+ '", "liftendedtime" : "' + mLiftEndedTime 
+					+ '", "policeinfo" : "' + mPoliceInfo 
+					+ '", "hospitalinfo" : "' + mHospitalInfo 
+					+ '", "concernsecurity" : "' + mConcernSecurity 
+					+ '", "name" : "' + mName 
+					+ '", "address" : "' + mAddress 
+					+ '", "contact" : "' + mContact 
+					+ '" }]';
+
+			localStorage.setItem(m_key, mString);    
+															
+			
+			saveMeldung();
+		}  
+			
+		function saveMeldung() {  
+						
+			uploadFiles();
+
+			// Set key for Meldung
+			m_key = 'm_' + localStorage.getItem("fe_user");   
+															
+
+			newMeldung(localStorage.getItem("fe_user"),localStorage.getItem(m_key));
+
+			jQuery(".meForm").each(function(){
+					jQuery(this).slideUp("fast").siblings("a.meldungButtonD").find("img").attr('src', 'img/meldungButtonPlus.png');
+			});
+		}
+			
+		function onGeoError(error) {		
+			countGeoForMeldung++;	
+			var mDateTime, mString, position, mPos, mPics; 
+			
+			if (countGeoForMeldung <= 2) {
+				getCurGeoDataForMeldung();
+			} else {
 				d = new Date();
 				m = d.getMonth() + 1;
-
+	
 				mDateTime = d.getHours() + ':' + d.getMinutes() + ':' +  d.getSeconds() + ' ' + d.getDate() + '-' + m + '-' + d.getFullYear();                
-				mPos = position.coords.latitude + "," + position.coords.longitude;
+				mPos = '0';
 				mPics = localStorage.getItem("pics");
-
+				
+				countGeoForMeldung = 0;
+				searchGeoDataForMeldung = false;
+	
 				mString = '[{   "datetime" : "' + mDateTime 
 						+ '", "position" : "' + mPos 
 						+ '", "meldung" : "' + mMeldung 
 						+ '", "pics" : "' + mPics 
 						+ '", "lostfound" : "' + mLostFound 
-                                                + '", "comment" : "' + mComment 
+						+ '", "comment" : "' + mComment 
 						+ '", "trainnumber" : "' + mTrainNumber 
 						+ '", "numberpersons" : "' + mNumberPersons 
 						+ '", "lift" : "' + mLift 
@@ -217,48 +285,41 @@ jQuery(document).ready(function () {
 						+ '", "address" : "' + mAddress 
 						+ '", "contact" : "' + mContact 
 						+ '" }]';
-
-				localStorage.setItem(m_key, mString);    
+	
+				localStorage.setItem(m_key, mString);    																
 				
-        saveMeldung();
-      }  
-        
-			function saveMeldung() {  
-							
-				uploadFiles();
-
-				// Set key for Meldung
-				m_key = 'm_' + localStorage.getItem("fe_user");   
-
-				newMeldung(localStorage.getItem("fe_user"),localStorage.getItem(m_key));
-
-				jQuery(".meForm").each(function(){
-						jQuery(this).slideUp("fast").siblings("a.meldungButtonD").find("img").attr('src', 'img/meldungButtonPlus.png');
-				});
+				saveMeldung();
 			}
-        
-			function onGeoError(error) {
-					
-					var d = new Date();
-					
-					var span_date = '<span>Zeit: ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + '</span>';        
-					//jQuery("#permaCheck").append("<span><b>Error</b></span> "+ span_date + "<br><hr>");
-			}  
+		}  
+		
+		function getCurGeoDataForMeldung() {	
+		// holt die aktuellen Geokoordinaten	
+			if (searchGeoDataForMeldung == false	) {
+				searchGeoDataForMeldung = true;
+				var options = {
+					maximumAge: 5000, timeout: 60000, enableHighAccuracy: true 
+				};
+				rWatchId = navigator.geolocation.getCurrentPosition(saveLocalMeldung, onGeoError, options);	
+			}
+		}	
+         
+    jQuery(".mConfirm").on('click',function () {			
+			getCurGeoDataForMeldung();					
 			      
 		});
 	
 		jQuery(".mBreak").on('click', function () {
 			m_key = 'm_' + localStorage.getItem("fe_user"); 
 			
-							localStorage.removeItem(m_key);
-							localStorage.removeItem("pics");   
-							jQuery("input[type=text], textarea").val("");
-							jQuery("input[type=checkbox]").attr('checked', false);
-							jQuery("input[type=radio]").attr('checked', false);
-							jQuery("#eingetroffeneStunde").val("");
-							jQuery("#eingetroffeneMinute").val("");
-							jQuery("#beendetStunde").val("");
-							jQuery("#beendetMinute").val("");
+			localStorage.removeItem(m_key);
+			localStorage.removeItem("pics");   
+			jQuery("input[type=text], textarea").val("");
+			jQuery("input[type=checkbox]").attr('checked', false);
+			jQuery("input[type=radio]").attr('checked', false);
+			jQuery("#eingetroffeneStunde").prop('selectedIndex',0);
+			jQuery("#eingetroffeneMinute").prop('selectedIndex',0);
+			jQuery("#beendetStunde").prop('selectedIndex',0);
+			jQuery("#beendetMinute").prop('selectedIndex',0);
 			
 			jQuery(".meForm").slideUp("fast").siblings("a.meldungButtonD").find("img").attr('src', 'img/meldungButtonPlus.png');    
 				
