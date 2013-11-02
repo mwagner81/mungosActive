@@ -181,7 +181,7 @@ jQuery(document).ready(function () {
 			MELDUNG IN DEN LOCALSTORAGE SPEICHERN
 		***************************************************************/	    
 		function saveReportData(reportData){
-			jQuery("#permaCheck").append('<span><b>saveReportData</b></span><br /><hr>');
+			//jQuery("#permaCheck").append('<span><b>saveReportData</b></span><br /><hr>');
 			
 			localStorage.setItem("pics", '');
 			
@@ -203,7 +203,7 @@ jQuery(document).ready(function () {
 		***************************************************************/
 		function getCurGeoData() {	
 			// holt die aktuellen Geokoordinaten	
-			jQuery("#permaCheck").append('<span><b>Geo-Data</b></span>: start searching<br /><hr>');
+			//jQuery("#permaCheck").append('<span><b>Geo-Data</b></span>: start searching<br /><hr>');
 			if ( searchGeoData == false	) {
 				searchGeoData = true;
 				var options = { maximumAge: mMaximumAge, timeout: mTimeout, enableHighAccuracy: mEnableHighAccuracy };
@@ -215,7 +215,7 @@ jQuery(document).ready(function () {
 			SPEICHERT DIE ERHALTENEN GEO-DATEN ZU DEN OFFENEN MELDUNGEN
 		***************************************************************/	
 		function saveGeoData(position) {	
-			jQuery("#permaCheck").append('<span><b>Geo-Data</b></span>: Data found<br /><hr>');
+			//jQuery("#permaCheck").append('<span><b>Geo-Data</b></span>: Data found<br /><hr>');
 			
 			searchGeoData = false;
 			mTimeout = 10000;
@@ -238,7 +238,7 @@ jQuery(document).ready(function () {
 		}
 		
 		function onGeoError(error) {
-			jQuery("#permaCheck").append('<span><b>Geo-Data</b></span>: NO Data found<br /><hr>');
+			//jQuery("#permaCheck").append('<span><b>Geo-Data</b></span>: NO Data found<br /><hr>');
 			
 			searchGeoData = false;	
 			setGeoDataErrCount++;
@@ -268,7 +268,7 @@ jQuery(document).ready(function () {
 							'tx_mungosstoerung[report]': JSON.stringify(reportContainer.reports[0]),
 							'tx_mungosstoerung[feUser]': localStorage.getItem("fe_user")
 					};
-					jQuery("#permaCheck").append('<span><b>Save</b></span>: save report to server<br /><hr>');
+					//jQuery("#permaCheck").append('<span><b>Save</b></span>: save report to server<br /><hr>');
 		
 					$.jsonp({
 							url: url,
