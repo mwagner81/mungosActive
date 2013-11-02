@@ -1,22 +1,38 @@
 jQuery(document).ready(function () {
 	
     // set global Variables
-		var reportData, mKey;
+		var reportData, mKey, mInterval, searchGeoData;
 		var reportContainer = {};
-			
+
+		var mTimeout = 10000;
+		var mMaximumAge = 5000;
+		var mEnableHighAccuracy = true;
+		var searchGeoData = false;
+		var setGeoDataErrCount = 0;
+				
     if (localStorage.getItem("fe_user")) {
         // Set key for Meldung
         mKey = 'm_' + localStorage.getItem("fe_user");
     }
 		if (!localStorage.getItem(mKey)) {
-			// Wachdienst Array
+			// Basiseintrag in Localstorage
 			reportContainer.reports = [];		
 			localStorage.setItem(mKey, JSON.stringify(reportContainer));
+		} else {
+			// wenn bereits ein Eintrag vorhanden ist
+			reportContainer = JSON.parse(localStorage.getItem(mKey));
+			
+			for (i=0;i<reportContainer.reports.length;i++) {
+				if (reportContainer.reports[i].lat == "") {
+					getCurGeoData();
+					break;
+				}
+			}
+			saveTimeout = setTimeout(function() {
+						saveReportToServer()
+				}, 1000);
+				
 		}
-		
-		saveTimeout = setTimeout(function() {
-					saveReportToServer()
-			}, 5000);
 		
 		jQuery(".saveMeldung").on('click', function () {
 			
@@ -165,6 +181,7 @@ jQuery(document).ready(function () {
 			MELDUNG IN DEN LOCALSTORAGE SPEICHERN
 		***************************************************************/	    
 		function saveReportData(reportData){
+			jQuery("#permaCheck").append('<span><b>saveReportData</b></span><br /><hr>');
 			
 			localStorage.setItem("pics", '');
 			
@@ -178,14 +195,31 @@ jQuery(document).ready(function () {
 			localStorage.setItem(mKey, JSON.stringify(reportContainer));
 			
 			resetForm();
-			
-			rWatchId = navigator.geolocation.getCurrentPosition(saveGeoData, onGeoError);
+			getCurGeoData();
 		}  
+		
+		/**************************************************************
+			HOLE AKTUELLE GEO-KOORDINATEN
+		***************************************************************/
+		function getCurGeoData() {	
+			// holt die aktuellen Geokoordinaten	
+			jQuery("#permaCheck").append('<span><b>Geo-Data</b></span>: start searching<br /><hr>');
+			if ( searchGeoData == false	) {
+				searchGeoData = true;
+				var options = { maximumAge: mMaximumAge, timeout: mTimeout, enableHighAccuracy: mEnableHighAccuracy };
+				rWatchId = navigator.geolocation.getCurrentPosition(saveGeoData, onGeoError, options);	
+			}	
+		}
 		
 		/**************************************************************
 			SPEICHERT DIE ERHALTENEN GEO-DATEN ZU DEN OFFENEN MELDUNGEN
 		***************************************************************/	
 		function saveGeoData(position) {	
+			jQuery("#permaCheck").append('<span><b>Geo-Data</b></span>: Data found<br /><hr>');
+			
+			searchGeoData = false;
+			mTimeout = 10000;
+			setGeoDataErrCount = 0;
 			
 			reportContainer = JSON.parse(localStorage.getItem(mKey));
 			
@@ -198,13 +232,18 @@ jQuery(document).ready(function () {
 				}
 			}
 			
-			localStorage.setItem(mKey, JSON.stringify(reportContainer));
+			localStorage.setItem(mKey, JSON.stringify(reportContainer)); 
 			
 			saveReportToServer();
 		}
 		
-		function onGeoError(error) {		
-			rWatchId = navigator.geolocation.getCurrentPosition(saveGeoData, onGeoError);
+		function onGeoError(error) {
+			jQuery("#permaCheck").append('<span><b>Geo-Data</b></span>: NO Data found<br /><hr>');
+			
+			searchGeoData = false;	
+			setGeoDataErrCount++;
+			if (setGeoDataErrCount > 5) { mTimeout = 60000; }	
+			getCurGeoData()
 		}
 		
 		/**************************************************************
@@ -213,6 +252,7 @@ jQuery(document).ready(function () {
 		function saveReportToServer() {
     
 			//mString = mString.replace(/\n/g,"\\n");
+			jQuery("#permaCheck").append('<span><b>Save</b></span>: save report to server<br /><hr>');
 			
 			//reportContainer = {};
 			reportContainer = JSON.parse(localStorage.getItem(mKey));
@@ -239,8 +279,8 @@ jQuery(document).ready(function () {
 								reportContainer.reports.shift();
 								localStorage.setItem(mKey,JSON.stringify(reportContainer));
 								saveTimeout = setTimeout(function() {
-										saveReportToServer()
-								}, 1000); 
+											saveReportToServer()
+									}, 1000); 
 									
 							},
 							error: function(){
