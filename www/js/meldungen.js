@@ -30,7 +30,7 @@ jQuery(document).ready(function () {
 			}
 			saveTimeout = setTimeout(function() {
 						saveReportToServer()
-				}, 1000);
+				}, 5000);
 				
 		}
 		
@@ -252,7 +252,6 @@ jQuery(document).ready(function () {
 		function saveReportToServer() {
     
 			//mString = mString.replace(/\n/g,"\\n");
-			jQuery("#permaCheck").append('<span><b>Save</b></span>: save report to server<br /><hr>');
 			
 			//reportContainer = {};
 			reportContainer = JSON.parse(localStorage.getItem(mKey));
@@ -269,18 +268,21 @@ jQuery(document).ready(function () {
 							'tx_mungosstoerung[report]': JSON.stringify(reportContainer.reports[0]),
 							'tx_mungosstoerung[feUser]': localStorage.getItem("fe_user")
 					};
+					jQuery("#permaCheck").append('<span><b>Save</b></span>: save report to server<br /><hr>');
 		
 					$.jsonp({
 							url: url,
 							data: data,
 							callbackParameter: 'jsonp_callback',
 							success: function(json) { 
-								consoleLog('debug', JSON.stringify(reportContainer.reports[0]));
+								//consoleLog('debug', JSON.stringify(reportContainer.reports[0]));
 								reportContainer.reports.shift();
 								localStorage.setItem(mKey,JSON.stringify(reportContainer));
-								saveTimeout = setTimeout(function() {
-											saveReportToServer()
-									}, 1000); 
+								if (reportContainer.reports.length > 0) {
+									saveTimeout = setTimeout(function() {
+												saveReportToServer()
+										}, 1000); 
+								}
 									
 							},
 							error: function(){
