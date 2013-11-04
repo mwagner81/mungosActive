@@ -147,7 +147,7 @@ input[type=radio]
     -o-transform: scale(2); /* Opera */
     width: auto;
     margin-right: 5px;
-		margin-left: 0.4em;
+		margin-left: 0.6em;
 }
 
 .gradientBorderTop {
@@ -639,7 +639,7 @@ p#pics img:nth-child(5n) {
 }
 
 .cameraButton {
-    width: 320px;
+    width: 300px;
     height: auto;
     margin-bottom: 5px;
     /*margin-left: -5px;*/
@@ -868,7 +868,7 @@ input.meCheck {
     float: left;
     margin: 0;
     margin-right: 5px;
-    margin-left: 0.5em;
+    margin-left: 0.6em;
 }
 
 
