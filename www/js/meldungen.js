@@ -116,7 +116,16 @@ jQuery(document).ready(function () {
 				// Verweise/Belehrung
 				reportData.type = "Verweise / Belehrung";
 				reportData.comment = jQuery("#10_comment").val();
-				
+			
+			} else if(jQuery(this).hasClass("11_meldung")) {
+				//unangemeldete Ein- oder Ausstiegshilfe
+				reportData.type = "Einsatzkräfte";   			
+				reportData.lift = jQuery("#11_feuerwehr").prop('checked') ? 1 : 0;
+				reportData.wheelchair = jQuery("#11_polizei").prop('checked') ? 1 : 0;
+				reportData.escort = jQuery("#11_rettung").prop('checked') ? 1 : 0;
+				reportData.comment = jQuery("#11_data_of_forces").val();		
+				reportData.comment = jQuery("#11_comment").val();		
+					
 			}
 		
 			reportData.timestamp = new Date();

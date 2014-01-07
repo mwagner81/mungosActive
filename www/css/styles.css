@@ -396,8 +396,8 @@ div#login {
 /* rundgang box */
 
 .rundgangBox {
-    height: 250px;
-    width: 250px;
+    height: 220px;
+    width: 220px;
     margin: auto;
     margin-top: 35px;
     position: relative;
@@ -620,6 +620,10 @@ p#pics img:nth-child(5n) {
     margin-right: 0;
 }
 
+#aufnahmebutton {
+	width: 100%;
+	text-align: center;
+}
 #aufnahmen {
     border-radius: 5px;
     box-shadow: 5px 5px 5px #C5C5C5;
@@ -639,9 +643,9 @@ p#pics img:nth-child(5n) {
 }
 
 .cameraButton {
-    width: 300px;
+    width: 200px;
     height: auto;
-    margin-bottom: 5px;
+    margin: 0px auto 5px auto;
     /*margin-left: -5px;*/
 }
 
@@ -1081,4 +1085,32 @@ span.navVertLineBright {
 .uEcheckWrap div {
     clear: both;
     padding-bottom: 15px;
+}
+
+/***********************************/
+/*           Brandschutz              */
+/***********************************/
+.brandschutz {
+	padding: 5px 20px;
+}
+label.ui-slider {
+	font-size: 0.850em;
+}
+.ui-btn-active {
+    background: linear-gradient(#FF0000, #990000) repeat scroll 0 0 #990000;
+    border: 1px solid #000;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #000;
+}
+.ui-btn:focus {
+	-moz-box-shadow: none;/*inset 0 0 3px 		#000 /*{global-active-background-color}*/, 0 0 9px 		#000 /*{global-active-background-color}*/;
+	-webkit-box-shadow: none;/*inset 0 0 3px 	#000 /*{global-active-background-color}*/, 0 0 9px 		#000 /*{global-active-background-color}*/;
+	box-shadow: none; /*inset 0 0 3px 			#000 /*{global-active-background-color}*/, 0 0 9px 		#000 /*{global-active-background-color}*/;
+}
+div.ui-slider-switch.ui-mini {
+    width: 6em;
 }
