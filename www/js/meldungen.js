@@ -94,6 +94,8 @@ jQuery(document).ready(function () {
 				reportData.police = jQuery("#06_wachzimmer").val();
 				reportData.security = jQuery("#06_konzernsicherheit").prop('checked') ? 1 : 0;	
 				reportData.comment = jQuery("#06_comment").val();	 
+				reportData.fotos = localStorage.getItem("pics");
+				uploadFiles();
 				             
 			} else if(jQuery(this).hasClass("07_meldung")) {
 				// Beschwerden/Anfragen
@@ -171,6 +173,7 @@ jQuery(document).ready(function () {
 					jQuery(".showMeForm").find("img.mbPlus").attr('src', 'img/meldungButtonPlus.png')
 					jQuery(this).next(".meForm").slideDown("fast").addClass("active");
 					jQuery(this).find("img.mbPlus").attr('src', 'img/meldungButtonMinus.png');
+					jQuery('html, body').animate({ scrollTop: (jQuery(this).offset().top)}, 'fast');
 			}
 		});  
 		
