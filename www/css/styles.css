@@ -399,13 +399,13 @@ div#login {
     height: 220px;
     width: 220px;
     margin: auto;
-    margin-top: 35px;
+    margin-top: 0px;
     position: relative;
 }
 
 .rundgangBox img#rundgangButtons {
-    height: 250px;
-    width: 250px;
+    height: 220px;
+    width: 220px;
 }
 
 .rundgangBox a#start {
