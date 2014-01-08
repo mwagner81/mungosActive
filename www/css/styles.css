@@ -130,23 +130,23 @@ input {
 input[type=checkbox]
 {
     /* Double-sized Checkboxes */
-    -ms-transform: scale(2); /* IE */
-    -moz-transform: scale(2); /* FF */
-    -webkit-transform: scale(2); /* Safari and Chrome */
-    -o-transform: scale(2); /* Opera */
+    -ms-transform: scale(1.5); /* IE */
+    -moz-transform: scale(1.5); /* FF */
+    -webkit-transform: scale(1.5); /* Safari and Chrome */
+    -o-transform: scale(1.5); /* Opera */
     width: auto;
-    margin-right: 5px;
+    margin-right: 0.8em;
 }
 
 input[type=radio]
 {
     /* Double-sized Checkboxes */
-    -ms-transform: scale(2); /* IE */
-    -moz-transform: scale(2); /* FF */
-    -webkit-transform: scale(2); /* Safari and Chrome */
-    -o-transform: scale(2); /* Opera */
+    -ms-transform: scale(1.5); /* IE */
+    -moz-transform: scale(1.5); /* FF */
+    -webkit-transform: scale(1.5); /* Safari and Chrome */
+    -o-transform: scale(1.5); /* Opera */
     width: auto;
-    margin-right: 5px;
+    margin-right: 0.8em;
 		margin-left: 0.6em;
 }
 
@@ -871,7 +871,7 @@ textarea.mobilitaetDetailText {
 input.meCheck {
     float: left;
     margin: 0;
-    margin-right: 5px;
+    margin-right: 0.8em;
     margin-left: 0.6em;
 }
 
@@ -1079,7 +1079,7 @@ span.navVertLineBright {
 
 .meForm .uEcheckWrap label {
     float: left;
-    margin-top: -8px;
+    margin-top: -3px;
 }
 
 .uEcheckWrap div {
