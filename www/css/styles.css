@@ -605,7 +605,8 @@ a.meldungButtonD.ui-link img {
 }
 
 p#pics {
-    padding: 0 2px;
+    padding: 0px 2px 20px 2px;
+		border-bottom: 1px solid #CBCBCB;
 }
 
 p#pics img {
@@ -643,7 +644,7 @@ p#pics img:nth-child(5n) {
 }
 
 .cameraButton {
-    width: 200px;
+    width: 160px;
     height: auto;
     margin: 0px auto 5px auto;
     /*margin-left: -5px;*/
@@ -698,10 +699,14 @@ p#pics img:nth-child(5n) {
     border: 0 none;
 }
 
-.uEinputWrap {
+.uLine {
     border-bottom: 1px solid #cbcbcb;
+}
+
+.uEinputWrap {
     padding-bottom: 20px;
 }
+
 
 input.zugnummer {
     background: url("../img/inputUeZn.png") 0 0 no-repeat transparent;
