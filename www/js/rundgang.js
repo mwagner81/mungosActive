@@ -2,8 +2,6 @@ jQuery(document).ready(function () {
 
 	var rKey, rWatchId, saveInterval, rInterval, saveTimeout, x, oRundgang;
 	
-	var url = "http://active-dev.mungos-services.at/index.php"; 
-	
 	if (localStorage.getItem("fe_user")) {
 		// Set key for Rundgang
 		rKey = 'r_' + localStorage.getItem("fe_user");
@@ -334,9 +332,9 @@ jQuery(document).ready(function () {
 					// bestehenden Rundgang speichern		
 					
 					data = {
-							'id': 77,
+							'id': rundgang_page_uid,
 							'no_cache': 1,
-							'type': 99,
+							'type': rundgang_page_type,
 							'tx_idsmungosrundgang[action]': "update",
 							'tx_idsmungosrundgang[uid]': rundgangContainer.Wachdienst[0].uid,
 							'tx_idsmungosrundgang[feUser]': localStorage.getItem("fe_user"),
@@ -352,9 +350,9 @@ jQuery(document).ready(function () {
 					// Rundgang wurde bisher noch nicht gespeichert		
 					
 					data = {
-							'id': 77,
+							'id': rundgang_page_uid,
 							'no_cache': 1,
-							'type': 99,
+							'type': rundgang_page_type,
 							'tx_idsmungosrundgang[action]': "create",
 							'tx_idsmungosrundgang[uid]': 0,
 							'tx_idsmungosrundgang[feUser]': localStorage.getItem("fe_user"),
@@ -370,7 +368,7 @@ jQuery(document).ready(function () {
 				}
 						
 				$.jsonp({
-					url: url,
+					url: app_url,
 					data: data,
 					callbackParameter: 'jsonp_callback',
 					success: function(json) {

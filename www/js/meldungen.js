@@ -274,9 +274,9 @@ jQuery(document).ready(function () {
 					url = "http://active-dev.mungos-services.at/index.php";
 					
 					data = {
-							'id': 79,
+							'id': meldung_page_uid,
 							'no_cache': 1,
-							'type': 97,
+							'type': meldung_page_type,
 							'tx_mungosstoerung[report]': JSON.stringify(reportContainer.reports[0]),
 							'tx_mungosstoerung[feUser]': localStorage.getItem("fe_user"),
 							'tx_mungosstoerung[version]': version
@@ -285,7 +285,7 @@ jQuery(document).ready(function () {
 					//jQuery("#permaCheck").append('<span><b>Save</b></span>: save report to server<br /><hr>');
 		
 					$.jsonp({
-							url: url,
+							url: app_url,
 							data: data,
 							callbackParameter: 'jsonp_callback',
 							success: function(json) { 
