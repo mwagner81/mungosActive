@@ -232,7 +232,7 @@
                               <input type="checkbox" class="meCheck" data-role="none" value="Rettung" id="11_rettung" /> <label for="11_rettung"><span>Rettung</span></label>
                           </div>
                       </div>
-                       <div class="uEinputWrap">
+                       <div class="uEinputWrap uLine">
                           <br />                          
                           <label for="11_data_of_forces"><span>Daten Einsatzkr&auml;fte</span></label>
                           <textarea id="11_data_of_forces" name="11_data_of_forces" cols="50" rows="5"></textarea>
@@ -253,12 +253,13 @@
                         <span class="meldung">Unangemeldete Ein-, Ausstieghilfe</span><img src="img/meldungButtonPlus.png" class="mbPlus" id="vPlus3" />
                     </a>
                     <div class="meForm" style="display:none" id="03_form">
-                        <div class="uEinputWrap">
+                        <div class="uEinputWrap uLine" style="padding-bottom: 30px;">
                             <b>Zugnummer</b><br />
-                            <input type="text" id="03_zugnummer" class="zugnummer" placeholder="Hier bitte die Zugnummer eingeben" data-role="none"  /><br />
-                            <input type="text" id="03_persons" class="persons" data-role="none"  /> Anzahl Personen
+                            <input type="text" id="03_zugnummer" class="zugnummer" placeholder="Hier bitte die Zugnummer eingeben"  />
+                            <div style="float:left;width:60px;"><input id="03_persons" class="persons" type="text" ></div>
+                            <div style="padding: 15px 0px 0px 70px;">Anzahl Personen</div>
                         </div>
-                        <div class="uEcheckWrap">
+                        <div class="uEcheckWrap uLine">
                             <div>
                                 <input type="checkbox" class="meCheck" data-role="none" value="Hebelift" id="03_hebelift" /> <label for="03_hebelift"><span>Hebelift</span></label>
                             </div>
@@ -269,12 +270,12 @@
                                 <input type="checkbox" class="meCheck" data-role="none" value="Begleitung" id="03_begleitung" /> <label for="03_begleitung"><span>Begleitung</span></label>
                             </div>
                         </div>
-                        <div class="uEinputWrap">
+                        <div class="uEinputWrap uLine">
                             <br />
                             <b>Ankunftsbahnhof</b> (optional)<br />
                             <input type="text" id="03_ankunftsbhf"  class="03_ankunftsbhf" placeholder="Ankunftsbahnhof" />
                         </div>
-                        <div class="uEcheckWrap">
+                        <div class="uEcheckWrap uLine">
                             <div>
                                 <input type="checkbox" class="meCheck" data-role="none" value="maTel" id="03_austieg_kontakt" /> <label for="03_austieg_kontakt"><span>MA für Ausstiegshilfe tel. informiert</span></label>
                             </div>
@@ -375,16 +376,12 @@
     										<div id="aufnahmebutton">
 	                        <img src="img/takePicButton2.png" class="cameraButton" onclick="captureImage();" />
                         </div>
-                        <div id="aufnahmen">Aufnahmen</div>
                         <p id="pics"></p>
-                        <div class="cameraButtons">
-                            <img src="img/cameraBreak.png" class="cameraBreak" onclick="deleteImage();" />
-                         </div>
-                        <div class="uEinputWrap">
+                        <div class="uEinputWrap uLine">
                             <label for="06_wachzimmer"><span>Wachzimmers bzw. Dienstnummer der Polizei</span></label>
                             <input type="text" id="06_wachzimmer" name="06_wachzimmer" />
                         </div>   
-                        <div class="uEcheckWrap">
+                        <div class="uEcheckWrap uLine">
                             <div>
                                 <input type="checkbox" class="meCheck" data-role="none" value="Konzernsicherheit" id="06_konzernsicherheit" /> <label for="06_konzernsicherheit"><span>Konzernsicherheit wurde verständigt</span></label>
                             </div>
@@ -409,7 +406,7 @@
                             <label for="07_name"><span>Name des Beschwerdef&uuml;rers</span></label>
                             <input type="text" id="07_name" name="07_name" />
                         </div>
-                        <div class="uEinputWrap">
+                        <div class="uEinputWrap uLine">
                             <br>
                             <label for="07_adresse"><span>Adresse des Beschwerdef&uuml;rers</span></label>
                             <input type="text" id="07_adresse" name="07_adresse" /><br>

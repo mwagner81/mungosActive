@@ -127,16 +127,42 @@ input {
     width: 100%;
 }
 
-input[type=checkbox]
-{
-    /* Double-sized Checkboxes */
-    -ms-transform: scale(1.5); /* IE */
-    -moz-transform: scale(1.5); /* FF */
-    -webkit-transform: scale(1.5); /* Safari and Chrome */
-    -o-transform: scale(1.5); /* Opera */
-    width: auto;
-    margin-right: 0.8em;
+input[type="checkbox"] {
+    display:none;
 }
+input[type="checkbox"] + label span {
+    padding-left: 30px;
+}
+input[type="checkbox"] + label {
+    display:inline-block;
+    width:25px;
+    height:25px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    background:url(../img/checkbox_sheet.fw.png) left top no-repeat;
+    cursor:pointer;
+}
+input[type="checkbox"]:checked + label {
+    background:url(../img/checkbox_sheet.fw.png) -25px top no-repeat;
+}
+input[type="radio"] {
+    display:none;
+}
+input[type="radio"] + label span {
+    padding-left: 30px;
+}
+input[type="radio"] + label {
+    display:inline-block;
+    height:25px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    background:url(../img/radio_off.fw.png) left top no-repeat;
+    cursor:pointer;
+}
+input[type="radio"]:checked + label {
+    background:url(../img/radio_on.fw.png) left top no-repeat;
+}
+
 
 input[type=radio]
 {
@@ -708,7 +734,7 @@ p#pics img:nth-child(5n) {
 }
 
 
-input.zugnummer {
+/*input.zugnummer {
     background: url("../img/inputUeZn.png") 0 0 no-repeat transparent;
     height: 20px;
     line-height: 20px;
@@ -728,7 +754,8 @@ input.persons {
     border: 0;
     display: inline;
     margin-right: 5px;
-}
+}*/
+
 
 input.mLch {
     float: left;
@@ -825,7 +852,7 @@ textarea.mobilitaetDetailText {
 }
 
 .uEcheckWrap {
-    border-bottom: 1px solid #cbcbcb;
+    /*border-bottom: 1px solid #cbcbcb;*/
     padding: 20px 0 0;
     position: relative;
 }
@@ -870,7 +897,7 @@ textarea.mobilitaetDetailText {
 }
 
 .uEcheckWrap span {
-    line-height: 20px;
+    line-height: 25px;
 }
 
 input.meCheck {
