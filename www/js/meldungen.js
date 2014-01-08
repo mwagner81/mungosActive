@@ -278,6 +278,7 @@ jQuery(document).ready(function () {
 							'no_cache': 1,
 							'type': 97,
 							'tx_mungosstoerung[report]': JSON.stringify(reportContainer.reports[0]),
+							'tx_mungosstoerung[feUser]': localStorage.getItem("fe_user"),
 							'tx_mungosstoerung[version]': version
 							
 					};
