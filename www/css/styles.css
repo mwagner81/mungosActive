@@ -135,15 +135,14 @@ input[type="checkbox"] + label span {
 }
 input[type="checkbox"] + label {
     display:inline-block;
-    width:25px;
     height:25px;
     margin:-1px 4px 0 0;
     vertical-align:middle;
-    background:url(../img/checkbox_sheet.fw.png) left top no-repeat;
+    background:url(../img/checkbox_off.fw.png) left top no-repeat;
     cursor:pointer;
 }
 input[type="checkbox"]:checked + label {
-    background:url(../img/checkbox_sheet.fw.png) -25px top no-repeat;
+    background:url(../img/checkbox_on.fw.png) -25px top no-repeat;
 }
 input[type="radio"] {
     display:none;
@@ -631,8 +630,9 @@ a.meldungButtonD.ui-link img {
 }
 
 p#pics {
-    padding: 0px 2px 20px 2px;
+    padding: 0px 2px 0px 2px;
 		border-bottom: 1px solid #CBCBCB;
+		magin: 0px;
 }
 
 p#pics img {
@@ -672,7 +672,7 @@ p#pics img:nth-child(5n) {
 .cameraButton {
     width: 160px;
     height: auto;
-    margin: 0px auto 5px auto;
+    margin: 5px auto 5px auto;
     /*margin-left: -5px;*/
 }
 
