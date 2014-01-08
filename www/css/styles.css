@@ -1094,23 +1094,26 @@ span.navVertLineBright {
 	padding: 5px 20px !important;
 }
 label.ui-slider {
-	font-size: 0.850em !important;
+	font-size: 1.0em !important;
 }
 .ui-btn-active {
     background: linear-gradient(#FF0000, #990000) repeat scroll 0 0 #990000 !important;
-    border: 1px solid #000 !important;
+    border: 0px solid #2373A5 !important;
     color: #FFFFFF !important;
     cursor: pointer;
     font-family: Helvetica,Arial,sans-serif;
     font-weight: bold;
     text-decoration: none;
-    text-shadow: 0 1px 0 #000 !important;
+   	text-shadow: 0 1px 0 #000 !important;
 }
 .ui-btn:focus {
-	-moz-box-shadow: none;/*inset 0 0 3px 		#000 /*{global-active-background-color}*/, 0 0 9px 		#000 /*{global-active-background-color}*/ !important;
-	-webkit-box-shadow: none;/*inset 0 0 3px 	#000 /*{global-active-background-color}*/, 0 0 9px 		#000 /*{global-active-background-color}*/ !important;
-	box-shadow: none; /*inset 0 0 3px 			#000 /*{global-active-background-color}*/, 0 0 9px 		#000 /*{global-active-background-color}*/ !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
 }
 div.ui-slider-switch.ui-mini {
     width: 6em !important;
+}
+.ui-btn-corner-all {
+    border-radius: 1.2em !important;
 }

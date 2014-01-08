@@ -173,7 +173,7 @@ jQuery(document).ready(function () {
 					jQuery(".showMeForm").find("img.mbPlus").attr('src', 'img/meldungButtonPlus.png')
 					jQuery(this).next(".meForm").slideDown("fast").addClass("active");
 					jQuery(this).find("img.mbPlus").attr('src', 'img/meldungButtonMinus.png');
-					jQuery('html, body').animate({ scrollTop: (jQuery(this).offset().top)}, 'fast');
+					
 			}
 		});  
 		
@@ -278,7 +278,8 @@ jQuery(document).ready(function () {
 							'no_cache': 1,
 							'type': 97,
 							'tx_mungosstoerung[report]': JSON.stringify(reportContainer.reports[0]),
-							'tx_mungosstoerung[feUser]': localStorage.getItem("fe_user")
+							'tx_mungosstoerung[version]': version
+							
 					};
 					//jQuery("#permaCheck").append('<span><b>Save</b></span>: save report to server<br /><hr>');
 		

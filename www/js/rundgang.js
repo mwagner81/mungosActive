@@ -63,7 +63,7 @@ jQuery(document).ready(function () {
 				
 					span_text = '<span><b>Rundgang wird fortgesetzt</b></span>';        
 					jQuery('.statusBox p:gt(0)').fadeOut(500, function () {
-						jQuery('<p class="control">' + span_text + '<br />' + getDateForOutput(oRundgang.Wachdienst[rCount].checkString[checkpointNr].datetime) + '<img src="img/mBoxEye.png" /></p>').hide().prependTo(".statusBox").delay(350).slideToggle("slow");
+						jQuery('<p class="control">' + span_text + '<br />' + getDateForOutput(oRundgang.Wachdienst[rCount].start) + '<img src="img/mBoxEye.png" /></p>').hide().prependTo(".statusBox").delay(350).slideToggle("slow");
 						jQuery(this).remove();
 					});
 				} else {
@@ -362,7 +362,8 @@ jQuery(document).ready(function () {
 							'tx_idsmungosrundgang[endDatetime]': endDatetime,
 							'tx_idsmungosrundgang[checkpoint]': checkpoint,
 							'tx_idsmungosrundgang[fireProtection]': rundgangContainer.Wachdienst[0].fireProtection,
-							'tx_idsmungosrundgang[complete]': rundgangContainer.Wachdienst[0].complete						
+							'tx_idsmungosrundgang[complete]': rundgangContainer.Wachdienst[0].complete,
+							'tx_idsmungosrundgang[version]': version						
 					};
 					//consoleLog('debug', "neuer Rundgang: " + JSON.stringify(data));
 					

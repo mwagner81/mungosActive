@@ -29,6 +29,8 @@ function getLogTime() {
 
 /* GLOBAL VARS */
 var u_key, timer, debug;
+
+var version = '1.2';
 			
 function consoleLog(type, output) {
 	
@@ -146,6 +148,8 @@ jQuery(document).ready(function () {
                 
                 // Set userData
                 localStorage.setItem(u_key, JSON.stringify(uData));
+								
+								//beendeAlleRundgaenge();
                 
                 //consoleLog('debug', JSON.parse(localStorage.getItem(u_key)));
                 //consoleLog('debug', localStorage);
@@ -204,6 +208,8 @@ jQuery(document).ready(function () {
             if (result.logged_in == false) {
                 uData.logged_in = result.logged_in;
                 
+								beendeAlleRundgaenge();
+								
                 // Set userData
                 localStorage.setItem(u_key, JSON.stringify(uData));
                 window.location.replace('index.html');
@@ -216,5 +222,29 @@ jQuery(document).ready(function () {
 		
         return false;
     });
+		
+		/**************************************************************
+		RUNDGANG-DATEN SÄUBERN
+	***************************************************************/
+	
+	function beendeAlleRundgaenge() {
+		var rundgangContainer, cleanLocalStorage;
+		
+		var rKey = 'r_' + localStorage.getItem("fe_user");
+		
+		cleanLocalStorage = true;
+		
+		rundgangContainer = {};
+		rundgangContainer = JSON.parse(localStorage.getItem(rKey));
+		if (rundgangContainer.Wachdienst.length > 0) {
+			// Rundgänge vorhanden
+			for (i=0;i<rundgangContainer.Wachdienst.length;i++) {
+				if (rundgangContainer.Wachdienst[i].ende == 0) {
+					rundgangContainer.Wachdienst[i].ende = new Date().getTime();
+					localStorage.setItem(rKey, JSON.stringify(rundgangContainer));
+				}
+			}	
+		}
+	}
 		
 });
