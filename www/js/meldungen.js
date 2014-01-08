@@ -120,12 +120,12 @@ jQuery(document).ready(function () {
 				reportData.comment = jQuery("#10_comment").val();
 			
 			} else if(jQuery(this).hasClass("11_meldung")) {
-				//unangemeldete Ein- oder Ausstiegshilfe
+				//Einsatzkräfte
 				reportData.type = "Einsatzkräfte";   			
-				reportData.lift = jQuery("#11_feuerwehr").prop('checked') ? 1 : 0;
-				reportData.wheelchair = jQuery("#11_polizei").prop('checked') ? 1 : 0;
-				reportData.escort = jQuery("#11_rettung").prop('checked') ? 1 : 0;
-				reportData.comment = jQuery("#11_data_of_forces").val();		
+				reportData.firedept = jQuery("#11_feuerwehr").prop('checked') ? 1 : 0;
+				reportData.police = jQuery("#11_polizei").prop('checked') ? 1 : 0;
+				reportData.ambulance = jQuery("#11_rettung").prop('checked') ? 1 : 0;
+				reportData.dataOfForces = jQuery("#11_data_of_forces").val();		
 				reportData.comment = jQuery("#11_comment").val();		
 					
 			}
