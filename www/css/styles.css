@@ -138,11 +138,11 @@ input[type="checkbox"] + label {
     height:25px;
     margin:-1px 4px 0 0;
     vertical-align:middle;
-    background:url(../img/checkbox_off.fw.png) left top no-repeat;
+    background:url(../img/checkbox_off.png) left top no-repeat;
     cursor:pointer;
 }
 input[type="checkbox"]:checked + label {
-    background:url(../img/checkbox_on.fw.png) -25px top no-repeat;
+    background:url(../img/checkbox_on.png) left top no-repeat;
 }
 input[type="radio"] {
     display:none;
@@ -155,11 +155,11 @@ input[type="radio"] + label {
     height:25px;
     margin:-1px 4px 0 0;
     vertical-align:middle;
-    background:url(../img/radio_off.fw.png) left top no-repeat;
+    background:url(../img/radio_off.png) left top no-repeat;
     cursor:pointer;
 }
 input[type="radio"]:checked + label {
-    background:url(../img/radio_on.fw.png) left top no-repeat;
+    background:url(../img/radio_on.png) left top no-repeat;
 }
 
 
